@@ -45,10 +45,10 @@ wget https://www.broadcastingcable.com/.image/t_share/MTU3NTE4OTY0OTYyODk1MDUw/p
 pip install moviepy
 
 python style.py \
-		--style /storage/burns.jpg \
 		--checkpoint-dir /artifacts \
-		--train-path /datasets/coco/ \
+		--train-path /datasets/coco \
 		--epochs 2 \
 		--batch-size 4 \
 		--checkpoint-iterations 2000 \
-		--vgg-path /storage/vgg/imagenet-vgg-verydeep-19.mat
+		--vgg-path /storage/vgg/imagenet-vgg-verydeep-19.mat \
+		--style /storage/burns.jpg 
