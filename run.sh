@@ -45,7 +45,7 @@ wget https://www.broadcastingcable.com/.image/t_share/MTU3NTE4OTY0OTYyODk1MDUw/p
 pip install moviepy
 
 python style.py \
-		--style /storage/train/25.5be32f972400004c029994d5.jpeg \
+		--style /storage/burns.jpg \
 		--checkpoint-dir /artifacts \
 		--train-path /datasets/coco/ \
 		--epochs 2 \
