@@ -45,8 +45,8 @@ apt-install || exit 1
 python style.py \
 		--device /gpu:0 \
 		--checkpoint-dir /artifacts \
-		--train-path /storage/data/train \
+		--train-path /storage/train \
 		--epochs 2 \
 		--batch-size 4 \
-		--checkpoint-iterations 250 \
-		--vgg-path /storage/imagenet-vgg-verydeep-19.mat \
+		--checkpoint-iterations 2000 \
+		--vgg-path /storage/vgg/imagenet-vgg-verydeep-19.mat
