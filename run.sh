@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_PACKAGES="apt-utils ffmpeg libav-tools x264 x265"
+APT_PACKAGES="apt-utils ffmpeg libav-tools x264 x265 wget"
 apt-install() {
 	export DEBIAN_FRONTEND=noninteractive
 	apt-get update -q
@@ -40,13 +40,15 @@ apt-install || exit 1
 #   --out-path /artifacts/out.mp4 \
 #   --device /gpu:0 \
 #   --batch-size 4 2>&1
+wget https://www.broadcastingcable.com/.image/t_share/MTU3NTE4OTY0OTYyODk1MDUw/patrick-stewart-picard-star-trek-cbs.jpg
 
 pip install moviepy
 
 python style.py \
+		--style /storage/train/25.5be32f972400004c029994d5.jpeg \
 		--device /gpu:0 \
 		--checkpoint-dir /artifacts \
-		--train-path /storage/train \
+		--train-path /datasets/coco/ \
 		--epochs 2 \
 		--batch-size 4 \
 		--checkpoint-iterations 2000 \
