@@ -42,6 +42,8 @@ apt-install || exit 1
 #   --device /gpu:0 \
 #   --batch-size 4 2>&1
 
+pip install moviepy
+
 python style.py \
 		--device /gpu:0 \
 		--checkpoint-dir /artifacts \
