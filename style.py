@@ -1,11 +1,14 @@
 from __future__ import print_function
 import sys, os, pdb
 sys.path.insert(0, 'src')
-import numpy as np, scipy.misc 
+import numpy as np, scipy.misc
 from optimize import optimize
 from argparse import ArgumentParser
 from utils import save_img, get_img, exists, list_files
 import evaluate
+
+import subprocess
+
 
 CONTENT_WEIGHT = 7.5e0
 STYLE_WEIGHT = 1e2
@@ -13,10 +16,10 @@ TV_WEIGHT = 2e2
 
 LEARNING_RATE = 1e-3
 NUM_EPOCHS = 2
-CHECKPOINT_DIR = 'checkpoints'
+CHECKPOINT_DIR = 'models/checkpoints'
 CHECKPOINT_ITERATIONS = 2000
-VGG_PATH = 'data/imagenet-vgg-verydeep-19.mat'
-TRAIN_PATH = 'data/train2014'
+VGG_PATH = 'data/vgg/imagenet-vgg-verydeep-19.mat'
+TRAIN_PATH = 'data/train'
 BATCH_SIZE = 4
 DEVICE = '/gpu:0'
 FRAC_GPU = 1
@@ -69,7 +72,7 @@ def build_parser():
                         dest='content_weight',
                         help='content weight (default %(default)s)',
                         metavar='CONTENT_WEIGHT', default=CONTENT_WEIGHT)
-    
+
     parser.add_argument('--style-weight', type=float,
                         dest='style_weight',
                         help='style weight (default %(default)s)',
@@ -79,7 +82,7 @@ def build_parser():
                         dest='tv_weight',
                         help='total variation regularization weight (default %(default)s)',
                         metavar='TV_WEIGHT', default=TV_WEIGHT)
-    
+
     parser.add_argument('--learning-rate', type=float,
                         dest='learning_rate',
                         help='learning rate (default %(default)s)',
@@ -108,7 +111,7 @@ def _get_files(img_dir):
     files = list_files(img_dir)
     return [os.path.join(img_dir,x) for x in files]
 
-    
+
 def main():
     parser = build_parser()
     options = parser.parse_args()
