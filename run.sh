@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_PACKAGES="apt-utils wget"
+APT_PACKAGES="apt-utils"
 apt-install() {
 	export DEBIAN_FRONTEND=noninteractive
 	apt-get update -q
@@ -9,7 +9,7 @@ apt-install() {
 }
 
 #install ffmpeg to container
-# add-apt-repository -y ppa:jonathonf/ffmpeg-3 2>&1
+add-apt-repository -y ppa:jonathonf/ffmpeg-3 2>&1
 apt-install || exit 1
 
 #create folders
@@ -17,9 +17,9 @@ apt-install || exit 1
 # mkdir models
 
 
-cd /storage
+# cd /storage
 # mkdir data
-cd data
+# cd data
 
 # mkdir vgg
 # mkdir train
@@ -29,10 +29,10 @@ cd data
 # tar -xzf simpsons.tar.gz
 # rm simpsons.tar.gz
 
-cd vgg
-wget http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat
+# cd vgg
+# wget http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat
 
-cd /paperspace
+# cd /paperspace
 
 
 #run style transfer on video
@@ -49,4 +49,4 @@ python style.py \
 		--epochs 2 \
 		--batch-size 4 \
 		--checkpoint-iterations 250 \
-		--vgg-path /storage/data/vgg/imagenet-vgg-verydeep-19.mat \
+		--vgg-path /storage/imagenet-vgg-verydeep-19.mat \
