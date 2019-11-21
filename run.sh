@@ -15,20 +15,24 @@ apt-install || exit 1
 #create folders
 
 # mkdir models
+
+
+cd /storage
 mkdir data
-
 cd data
-mkdir vgg
 
+mkdir vgg
 mkdir train
+
 cd train
 wget http://173.255.194.181:5000/simpsons.tar.gz
 tar -xzf simpsons.tar.gz
+rm simpsons.tar.gz
 
 cd ../vgg
 wget http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat
 
-cd ../..
+cd /paperspace
 
 
 #run style transfer on video
@@ -41,8 +45,8 @@ cd ../..
 python style.py \
 		--device /gpu:0 \
 		--checkpoint-dir /artifacts \
-		--train-path train \
+		--train-path /storage/data/train \
 		--epochs 2 \
 		--batch-size 4 \
 		--checkpoint-iterations 250 \
-		--vgg-path data/vgg/imagenet-vgg-verydeep-19.mat \
+		--vgg-path /storage/data/vgg/imagenet-vgg-verydeep-19.mat \
