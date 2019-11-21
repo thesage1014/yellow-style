@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_PACKAGES="apt-utils ffmpeg libav-tools x264 x265"
+APT_PACKAGES="apt-utils ffmpeg libav-tools x264 x265 wget"
 apt-install() {
 	export DEBIAN_FRONTEND=noninteractive
 	apt-get update -q
