@@ -46,7 +46,6 @@ pip install moviepy
 
 python style.py \
 		--style /storage/train/25.5be32f972400004c029994d5.jpeg \
-		--device /gpu:0 \
 		--checkpoint-dir /artifacts \
 		--train-path /datasets/coco/ \
 		--epochs 2 \
