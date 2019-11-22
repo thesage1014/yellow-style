@@ -56,7 +56,7 @@ def _conv_layer(input, weights, bias):
 
 
 def _pool_layer(input):
-    return tf.nn.max_pool(input, ksize=(1, 2, 2, 1), strides=(1, 2, 2, 1),
+    return tf.nn.max_pool2d(input, ksize=(1, 2, 2, 1), strides=(1, 2, 2, 1),
             padding='SAME')
 
 
