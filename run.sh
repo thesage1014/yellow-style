@@ -12,7 +12,7 @@ apt-install() {
 add-apt-repository -y ppa:jonathonf/ffmpeg-3 2>&1
 apt-install || exit 1
 
-pip install moviepy
+pip install moviepy Pillow scipy numpy
 
 python style.py --checkpoint-dir /artifacts/checkpoints \
 		 --train-path /datasets/coco/coco_train2014 \
