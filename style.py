@@ -1,11 +1,14 @@
 from __future__ import print_function
 import sys, os, pdb
 sys.path.insert(0, 'src')
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import numpy as np, scipy.misc
 from optimize import optimize
 from argparse import ArgumentParser
 from utils import save_img, get_img, exists, list_files
 import evaluate
+
+from dump_checkpoints import dump_checkpoints
 
 CONTENT_WEIGHT = 7.5e0
 STYLE_WEIGHT = 1e2
@@ -162,6 +165,11 @@ def main():
     ckpt_dir = options.checkpoint_dir
     cmd_text = 'python evaluate.py --checkpoint %s ...' % ckpt_dir
     print("Training complete. For evaluation:\n    `%s`" % cmd_text)
+    
+    print('Converting model to ml5js')
+    dump_checkpoints(kwargs['save_path'], options.model_dir)
+    print('Done! Checkpoint saved. Visit https://ml5js.org/docs/StyleTransfer for more information')
+
 
 if __name__ == '__main__':
     main()
