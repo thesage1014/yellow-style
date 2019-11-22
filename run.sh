@@ -14,10 +14,11 @@ apt-install || exit 1
 
 pip install moviepy
 
-python style.py --checkpoint-dir /artifacts \
-		 --train-path /datasets/coco \
+python style.py --checkpoint-dir /artifacts/checkpoints \
+		 --train-path /datasets/coco/coco_train2014 \
 		 --epochs 2 \
-		 --batch-size 4 \
+		 --model-dir /artifacts
+		 --batch-size 12 \
 		 --checkpoint-iterations 2000 \
 		 --vgg-path /storage/vgg/imagenet-vgg-verydeep-19.mat \
 		 --style /storage/burns.jpg 2>&1
