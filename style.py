@@ -16,13 +16,13 @@ TV_WEIGHT = 2e2
 
 LEARNING_RATE = 1e-3
 NUM_EPOCHS = 2
-CHECKPOINT_DIR = 'models/checkpoints'
-CHECKPOINT_ITERATIONS = 2000
-VGG_PATH = 'data/vgg/imagenet-vgg-verydeep-19.mat'
-TRAIN_PATH = 'data/train'
+CHECKPOINT_DIR = '/artifacts'
+CHECKPOINT_ITERATIONS = 1000
+VGG_PATH = '/storage/vgg/imagenet-vgg-verydeep-19.mat'
+TRAIN_PATH = '/datasets/coco'
 BATCH_SIZE = 4
 DEVICE = '/gpu:0'
-FRAC_GPU = 1
+FRAC_GPU = 0.98
 
 def build_parser():
     parser = ArgumentParser()
