@@ -22,7 +22,7 @@ apt-get update && apt-get install -y ffmpeg
 
 mkdir /artifacts/checkpoints
 
-pip install moviepy Pillow scipy numpy
+pip install moviepy Pillow scipy numpy imageio
 
 python style.py --checkpoint-dir /artifacts/checkpoints \
 		 --train-path /datasets/coco \
