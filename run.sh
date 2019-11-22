@@ -42,7 +42,7 @@ apt-install || exit 1
 #   --batch-size 4 2>&1
 # wget https://www.broadcastingcable.com/.image/t_share/MTU3NTE4OTY0OTYyODk1MDUw/patrick-stewart-picard-star-trek-cbs.jpg
 
-pip3 install moviepy
+pip install moviepy
 
 python3 style.py --checkpoint-dir /artifacts \
 		 --train-path /datasets/coco \
