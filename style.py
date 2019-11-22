@@ -22,10 +22,14 @@ VGG_PATH = '/storage/vgg/imagenet-vgg-verydeep-19.mat'
 TRAIN_PATH = '/datasets/coco'
 BATCH_SIZE = 4
 DEVICE = '/gpu:0'
-FRAC_GPU = 0.98
+FRAC_GPU = 1
+MODEL_PATH = 'models'
 
 def build_parser():
     parser = ArgumentParser()
+    parser.add_argument('--model-dir', type=str,
+                        dest='model_dir', help='dir to save ml5 models in',
+                        metavar='MODELS_DIR', default=MODEL_PATH)
     parser.add_argument('--checkpoint-dir', type=str,
                         dest='checkpoint_dir', help='dir to save checkpoint in',
                         metavar='CHECKPOINT_DIR', required=True)
