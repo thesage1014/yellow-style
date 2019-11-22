@@ -27,7 +27,7 @@ pip install moviepy Pillow scipy numpy
 python style.py --checkpoint-dir /artifacts/checkpoints \
 		 --train-path /datasets/coco/coco_train2014 \
 		 --epochs 2 \
-		 --model-dir /artifacts
+		 --model-dir /artifacts \
 		 --batch-size 12 \
 		 --checkpoint-iterations 2000 \
 		 --vgg-path /storage/vgg/imagenet-vgg-verydeep-19.mat \
