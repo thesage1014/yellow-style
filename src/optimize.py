@@ -39,8 +39,8 @@ def optimize(content_targets, style_target, content_weight, style_weight,
             gram = np.matmul(features.T, features) / features.size
             style_features[layer] = gram
 
-    with tf.Graph().as_default(), tf.Session() as sess:
-        X_content = tf.placeholder(tf.float32, shape=batch_shape, name="X_content")
+    with tf.Graph().as_default(), tf.compat.v1.Session() as sess:
+        X_content = tf.compat.v1.placeholder(tf.float32, shape=batch_shape, name="X_content")
         X_pre = vgg.preprocess(X_content)
 
         # precompute content features
