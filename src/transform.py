@@ -63,5 +63,5 @@ def _conv_init_vars(net, out_channels, filter_size, transpose=False):
     else:
         weights_shape = [filter_size, filter_size, out_channels, in_channels]
 
-    weights_init = tf.Variable(tf.truncated_normal(weights_shape, stddev=WEIGHTS_INIT_STDEV, seed=1), dtype=tf.float32)
+    weights_init = tf.Variable(tf.random.truncated_normal(weights_shape, stddev=WEIGHTS_INIT_STDEV, seed=1), dtype=tf.float32)
     return weights_init
