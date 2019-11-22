@@ -49,6 +49,6 @@ python style.py \
 		--train-path /datasets/coco \
 		--epochs 2 \
 		--batch-size 4 \
-		--checkpoint-iterations 2000 \
+		--checkpoint-iterations 1000 \
 		--vgg-path /storage/vgg/imagenet-vgg-verydeep-19.mat \
-		--style /storage/burns.jpg 
+		--style /storage/burns.jpg 2>&1
